@@ -14,20 +14,21 @@ def start():
 	os.system("pause")
 
 def check_jdk():
-	os.system("javac > chk.test")
-	for l in open("chk.test", "r").readlines():
-		if os.name == "nt" and l == "":
-			is_jdk = False
-			os.system("del chk.test")
-			break
-		elif os.name == "posix" and l == "":
-			is_jdk = False
-			os.system("rm -r chk.test")
-			break
-		else:
-			print("you have jdk, you good!")
-			is_jdk = True
-			break
+	os.chdir("C:\\Program Files\\Java")
+	for e in os.listdir():
+		for l in e:
+			if os.name == "nt" and e == "r":
+				is_jdk = False
+				os.system("del chk.test")
+				break
+			elif os.name == "posix" and e == "r":
+				is_jdk = False
+				os.system("rm -r chk.test")
+				break
+			else:
+				print("you have jdk, you good!")
+				is_jdk = True
+				break
 	if is_jdk == False:
 		while True:
 			yn = input("you want to download jdk 17? y/n")
