@@ -16,11 +16,11 @@ def start():
 def check_jdk():
 	os.system("javac > chk.test")
 	for l in open("chk.test", "r").readlines():
-		if os.name == "nt" and l == "'":
+		if os.name == "nt" and l == "":
 			is_jdk = False
 			os.system("del chk.test")
 			break
-		elif os.name == "posix" and l == "/" or l == "b":
+		elif os.name == "posix" and l == "":
 			is_jdk = False
 			os.system("rm -r chk.test")
 			break
