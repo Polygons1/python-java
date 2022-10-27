@@ -53,7 +53,7 @@ def check_jdk():
 				download = False
 				break
 		if download == True:
-			if os.name == "nt" and platform.version() > 10:
+			if os.name == "nt" and platform.version() >= 10:
 				os.system("curl -L https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi -o jdksetup.msi")
 				os.system("jdksetup.msi")
 			elif os.name == "posix" and platform.system() == "Darwin":
