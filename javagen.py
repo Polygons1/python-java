@@ -16,6 +16,10 @@ def start():
 	os.system("pause")
 
 def check_jdk():
+	global is_jdk
+	global download
+	global filesnum
+	global chk_filesnum
 	os.chdir("C:\\Program Files")
 	for chk in os.listdir():
 		filesnum = filesnum + 1
