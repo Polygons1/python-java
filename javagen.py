@@ -5,6 +5,8 @@ os.chdir("build")
 
 is_jdk = 0
 download = 0
+filesnum = 0
+chk_filesnum = 0
 
 def start():
 	print("you need jdk added in the path to continue")
@@ -14,21 +16,29 @@ def start():
 	os.system("pause")
 
 def check_jdk():
-	os.chdir("C:\\Program Files\\Java")
+	os.chdir("C:\\Program Files")
+	for chk in os.listdir():
+		filesnum = filesnum + 1
 	for e in os.listdir():
-		for l in e:
-			if os.name == "nt" and e == "r":
-				is_jdk = False
-				os.system("del chk.test")
-				break
-			elif os.name == "posix" and e == "r":
-				is_jdk = False
-				os.system("rm -r chk.test")
-				break
-			else:
-				print("you have jdk, you good!")
-				is_jdk = True
-				break
+		chk_filesnum = chk_filesnum + 1
+		if e == "Java":
+			os.chdir("Java")
+			for l in e:
+				if os.name == "nt" and e == "r":
+					is_jdk = False
+					break
+				elif os.name == "posix" and e == "r":
+					is_jdk = False
+					break
+				else:
+					print("you have jdk, you good!")
+					is_jdk = True
+					break
+		elif chk_filesnum == filesnum:
+			is_jdk = False
+			break
+		else:
+			break
 	if is_jdk == False:
 		while True:
 			yn = input("you want to download jdk 17? y/n")
